@@ -14,6 +14,10 @@ class TranslateLinkController extends AbstractController
     {
         $link = $linkRepository->findOneBy(['shortLink' => $shortLink]);
 
+        $link->setUsedTimesCount($link->getUsedTimesCount() + 1);
+
+        $linkRepository->save($link, true);
+
         // return $this->render('translate_link/index.html.twig', [
         //     'controller_name' => $link->getLongLink(),
         // ]);
