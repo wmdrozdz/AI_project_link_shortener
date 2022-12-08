@@ -14,10 +14,10 @@ class LinkType extends AbstractType
         $builder
             ->add('shortLink')
             ->add('longLink')
-            ->add('createdAt')
-            ->add('modifiedAt')
-            ->add('lastUsedAt')
-            ->add('usedTimesCount')
+            // ->add('createdAt')
+            // ->add('modifiedAt')
+            // ->add('lastUsedAt')
+            // ->add('usedTimesCount')
             ->add('password')
         ;
     }
