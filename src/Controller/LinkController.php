@@ -29,6 +29,9 @@ class LinkController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $link->setCreatedAt(new \DateTime());
+            $link->setModifiedAt(new \DateTime());
+            $link->setUsedTimesCount(0);
             $linkRepository->save($link, true);
 
             return $this->redirectToRoute('app_link_index', [], Response::HTTP_SEE_OTHER);
@@ -55,6 +58,7 @@ class LinkController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $link->setModifiedAt(new \DateTime());
             $linkRepository->save($link, true);
 
             return $this->redirectToRoute('app_link_index', [], Response::HTTP_SEE_OTHER);
