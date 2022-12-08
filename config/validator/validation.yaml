@@ -1,0 +1,4 @@
+App\Entity\Link:
+    properties:
+        longLink:
+            - Url: { protocols: [http, https], relativeProtocol: false}
