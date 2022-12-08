@@ -16,6 +16,8 @@ class TranslateLinkController extends AbstractController
 
         $link->setUsedTimesCount($link->getUsedTimesCount() + 1);
 
+        $link->setLastUsedAt(new \DateTime());
+
         $linkRepository->save($link, true);
 
         // return $this->render('translate_link/index.html.twig', [
