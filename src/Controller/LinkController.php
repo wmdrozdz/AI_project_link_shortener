@@ -9,11 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/link')]
 class LinkController extends AbstractController
 {
     #[Route('/', name: 'app_link_index', methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function index(LinkRepository $linkRepository): Response
     {
         return $this->render('link/index.html.twig', [
