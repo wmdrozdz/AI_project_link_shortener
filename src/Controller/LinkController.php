@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class LinkController extends AbstractController
 {
     #[Route('/', name: 'app_link_index', methods: ['GET'])]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_USER')]
     public function index(LinkRepository $linkRepository): Response
     {
         return $this->render('link/index.html.twig', [
@@ -24,6 +24,7 @@ class LinkController extends AbstractController
     }
 
     #[Route('/new', name: 'app_link_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, LinkRepository $linkRepository): Response
     {
         $link = new Link();
@@ -46,6 +47,7 @@ class LinkController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_link_show', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function show(Link $link): Response
     {
         return $this->render('link/show.html.twig', [
@@ -54,6 +56,7 @@ class LinkController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_link_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Link $link, LinkRepository $linkRepository): Response
     {
         $form = $this->createForm(LinkType::class, $link);
@@ -73,6 +76,7 @@ class LinkController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_link_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Link $link, LinkRepository $linkRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$link->getId(), $request->request->get('_token'))) {
