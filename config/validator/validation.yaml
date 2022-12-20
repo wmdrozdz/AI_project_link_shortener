@@ -1,4 +1,11 @@
 App\Entity\Link:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: shortLink
+
     properties:
         longLink:
             - Url: { protocols: [http, https], relativeProtocol: false}
+
+        shortLink:
+          - NotEqualTo: link
+

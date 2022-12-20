@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TranslateLinkController extends AbstractController
 {
-    #[Route('{shortLink}', name: 'app_translate_link')]
+    //#[Route('{shortLink}', name: 'app_translate_link')]
     public function index($shortLink, LinkRepository $linkRepository): Response
     {
         $link = $linkRepository->findOneBy(['shortLink' => $shortLink]);

@@ -123,4 +123,13 @@ class Link
 
         return $this;
     }
+
+//    public function genRandomShortLink(): void
+//    {
+//        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSUVWXYZ0123456789';
+//
+//        for ($i = 0; $i < 8; $i++) {
+//            $this->shortLink .= substr($alphabet, rand(0, strlen($alphabet) - 1), 1);
+//        }
+//    }
 }
