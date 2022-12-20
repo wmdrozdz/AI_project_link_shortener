@@ -8,4 +8,10 @@ App\Entity\Link:
 
         shortLink:
           - NotEqualTo: link
+          - NotEqualTo: register
+          - NotEqualTo: login
+          - NotEqualTo: logout
+          - Regex:
+              pattern: '/\W/'
+              match: false
 
