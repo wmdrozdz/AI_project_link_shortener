@@ -8,31 +8,33 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <!--th>Id</th-->
                 <th>ShortLink</th>
                 <th>LongLink</th>
-                <th>CreatedAt</th>
-                <th>ModifiedAt</th>
+                <!--th>CreatedAt</th-->
+                <!--th>ModifiedAt</th-->
                 <th>LastUsedAt</th>
                 <th>UsedTimesCount</th>
-                <th>Password</th>
+                <!--th>Password</th-->
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for link in links %}
             <tr>
-                <td>{{ link.id }}</td>
+                <!--td>{{ link.id }}</td-->
                 <td>{{ link.shortLink }}</td>
                 <td>{{ link.longLink }}</td>
-                <td>{{ link.createdAt ? link.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ link.modifiedAt ? link.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <!--td>{{ link.createdAt ? link.createdAt|date('Y-m-d H:i:s') : '' }}</td-->
+                <!--td>{{ link.modifiedAt ? link.modifiedAt|date('Y-m-d H:i:s') : '' }}</td-->
                 <td>{{ link.lastUsedAt ? link.lastUsedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ link.usedTimesCount }}</td>
-                <td>{{ link.password }}</td>
+                <!--td>{{ link.password }}</td-->
                 <td>
+                    {% if is_granted('ROLE_USER') %}
                     <a href="{{ path('app_link_show', {'id': link.id}) }}">show</a>
                     <a href="{{ path('app_link_edit', {'id': link.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
