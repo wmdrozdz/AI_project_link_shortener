@@ -15,3 +15,12 @@ App\Entity\Link:
               pattern: '/\W/'
               match: false
 
+App\Entity\User:
+    properties:
+        username:
+          - Regex:
+              pattern: '/\s/'
+              match: false
+          - Regex:
+              pattern: '/\W/'
+              match: false
